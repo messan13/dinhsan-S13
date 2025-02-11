@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String   @unique(map: "User_email_key")
+  createdAt  DateTime @default(now())
+  password   String
+  checkAdmin Boolean  @default(false)
+}
+
+model product {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String?
+  price       Float
+  image       String?
+  carts       cart[]
+}
+
+model cart {
+  id        Int @id @default(autoincrement()) 
+  iduser    Int
+  idproduct Int
+  product product @relation(fields: [idproduct], references: [id])
+  @@unique([iduser, idproduct]) 
+}
+

@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.err{
+  color: red;
+}
+label{
+  flex: 1;
+}
+input{
+  flex: 1;
+  border: 1px solid black;
+}
+.mb-3{
+  margin-top: 30px;
+}
+.left{
+  margin: auto;
+  color: white;
+  padding: 70px 0px;
+  padding-left: 100px;
+}
+.right{
+  width: 50%;
+  margin: auto;
+  background-color: whitesmoke;
+}
+.auth{
+  background-color: rgb(6, 145, 6);
+}
+.form-control{
+  background-color: rgb(6, 145, 6);
+}
+td{
+  text-align: center;
+}
