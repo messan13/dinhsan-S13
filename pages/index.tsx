@@ -7,12 +7,14 @@ export default function Home() {
 
   return (
     <>
-    <Container>
-    <Menu />
-     <Banner />
-     <Product />
+    
+      
+        <Menu />
+        <Container>
+        <Banner />
+        <Product />
       </Container>
     </>
-    
+
   );
 }

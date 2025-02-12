@@ -29,6 +29,7 @@ model cart {
   id        Int @id @default(autoincrement()) 
   iduser    Int
   idproduct Int
+  quantity  Int @default(1)
   product product @relation(fields: [idproduct], references: [id])
   @@unique([iduser, idproduct]) 
 }

@@ -5,6 +5,10 @@ import useSWR from "swr";
 import { mutate } from 'swr';
 import { useSession } from "next-auth/react";
 import {toast } from 'react-toastify';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown'
 interface IProduct {
   id: number;
   name: string;
@@ -32,7 +36,7 @@ export default function Products() {
           'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({iduser,idproduct})
+        body: JSON.stringify({iduser,idproduct,quantity:Number(1)})
       })
       const kq = await data.json();
       if(kq){

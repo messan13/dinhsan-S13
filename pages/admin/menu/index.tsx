@@ -1,34 +1,40 @@
-'use client'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Link from 'next/link';
-import Dashboard from '../dashboard';
-function menu() {
+import Dashboard from '../../user/dashboard';
+import Link from "next/link";
+import { useState } from "react";
 
-  return (
-    <>
-    <Navbar fixed='top' expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="/admin">ADMIN</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-      <Link href={'/admin/user'} className='nav-link'>
-     USER
-      </Link>
-            <Link href={'/admin/product'} className='nav-link'>
-            PRODUCT
-            </Link>
-           <Dashboard />
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-    </>
-  );
-
+export default function menu() {
+  const [isvalble,setIsvalble] = useState<boolean>(false)
+  const ToggleValble= ()=>{
+    setIsvalble(!isvalble)
+  }
+return (
+  <>
+  <div className='menu_user'>
+        <div className='menu_right'>
+            <nav style={{}}>
+              <ul>
+              <li>  <img src="/upload/logo.png" alt=""  /> </li>
+                <li>
+                  <Link href="/">Trang chủ</Link>
+                </li>
+                <li>
+                  <Link href="/admin/user">User</Link>
+                </li>
+                <li>
+                  <Link href="/admin/product">Product</Link>
+                </li>
+                  
+              </ul>
+            </nav>
+        </div>
+        <div className='menu_left'>
+            <nav>
+                <ul>
+                    <li><Dashboard/></li>
+                </ul>
+            </nav>
+        </div>
+        </div> 
+  </>
+);
 }
-
-export default menu;

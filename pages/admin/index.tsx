@@ -5,8 +5,8 @@ export default function Home() {
 
   return (
     <>
+      <Menu />
     <Container>
-    <Menu />
       <div style={{paddingTop:'100px'}}>
         <Link  href={'/'}>VỀ TRANG USER</Link>
       </div>

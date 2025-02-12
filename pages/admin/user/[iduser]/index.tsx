@@ -4,8 +4,6 @@ import useSWR, { Fetcher } from 'swr';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Link from 'next/link';
-import { useState } from 'react';
-import UpdateUser from '../update';
 const viewDetail = ()=>{
     const router = useRouter();
     const fetcher :Fetcher<Iuser,string> = (url:string) => fetch(url).then(res => res.json())
