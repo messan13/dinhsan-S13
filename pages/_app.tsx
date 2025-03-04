@@ -6,17 +6,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer} from 'react-toastify';
 import { SessionProvider } from "next-auth/react";
 import "bootstrap-icons/font/bootstrap-icons.css";
-
+import Menu from "./user/menu";
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div>
+    <>
   
-      <SessionProvider session={pageProps.session}>  
+  <SessionProvider session={pageProps.session}>  
+  <Menu />
   <Component {...pageProps} />
-  </SessionProvider> 
-  
   <ToastContainer 
-  position="top-right"
+  position="top-center"
   autoClose={5000}
   hideProgressBar={false}
   newestOnTop={false}
@@ -28,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
   theme="light"
   />
 
-
-  </div>
+</SessionProvider> 
+  </>
   )
 }

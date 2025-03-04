@@ -52,7 +52,7 @@ export default NextAuth({
         token.id = user.id; 
         token.name = user.name;
         token.email = user.email;
-        token.checkAdmin = user.checkAdmin
+        token.checkAdmin = user.checkAdmin;
       }
       return token;
     },

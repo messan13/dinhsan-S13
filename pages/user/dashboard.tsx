@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { BsPersonLinesFill } from "react-icons/bs";
 import { useRouter } from 'next/router';
-import Cart from './cart'
+import LogoCart from './cart/logo'
 export default function Dashboard() {
   const router = useRouter();
   const [isvalble,setIsvalble] = useState<boolean>(false)
@@ -26,10 +26,16 @@ export default function Dashboard() {
     return <p style={{margin:"auto"}}>Loading...</p>;
   }
   if (!session) {
-    
-    return ( <Button style={{marginTop:'20px'}} variant='primary' onClick={()=>{
+    return ( 
+      <>
+      <div style={{display:'flex'}}>
+    <Button style={{marginTop:'20px' , width:"120px" , height:"40px" ,border:'2px solid #527360', background:"white" , color:" #527360" , borderRadius:"20px"}} variant='primary' onClick={()=>{
       router.push('/auth/SignIn')
-    }} >Đăng Nhập</Button> );
+    }} >Đăng Nhập</Button> 
+    <Button style={{marginTop:'20px', marginLeft:"5px" ,background:"#527360",border:'2px solid #527360', width:"120px" , height:"40px"  , color:"white", borderRadius:"20px"}} variant='primary'>Đăng ký</Button>
+    </div>
+    </>
+  );
   }
   
   const ToggleValble= ()=>{
@@ -37,13 +43,18 @@ export default function Dashboard() {
   }
   return (
     <>
-    <nav style={{position:"relative"}}>
+    <nav className='navmenu' style={{position:"relative"}}>
       <ul>
       <li>
-       <Link href={''}>{session.user.email}</Link>
+       <Link style={{lineHeight:"70px"}} href={`http://localhost:3000/admin/user/${session.user.id}`}>{session.user.email}</Link>
       </li>
       <li>
-   <Link href={`http://localhost:3000/user/cart/${session.user.id}`}><Cart/></Link>
+   <Link style={{lineHeight:"70px"}} href={`http://localhost:3000/user/cart`}><LogoCart/></Link>
+      </li>
+      <li>
+        <Link  href={`http://localhost:3000/user/purchase`}>
+          <img style={{ margin:"20px 0px",width:'auto',height:"auto"}} src="/upload/order.png" alt="" />
+        </Link>
       </li>
   <li>
         <button className='btnmenu' style={{lineHeight:"70px"  , fontWeight:'bolder'}}  onClick={ToggleValble}>

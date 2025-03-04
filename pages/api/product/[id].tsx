@@ -105,6 +105,13 @@ export default async function product(req:NextApiRequestWithFile, res:NextApiRes
         const findid = await prisma.product.findFirst({
             where: { id: Number(id) },
           });
+          if(!findid){
+            return res.status(400).json("không có sản phẩm")
+          }
+          const orderid = await prisma.orderItem.findFirst({where:{productId:Number(id)}})
+          if(orderid){
+            return res.status(400).json("Sản phẩm đã được lên đơn bạn không được phép xóa!")
+          }
         try{
             const deletepro = await prisma.product.delete({
                 where :{id:Number(id)}
@@ -123,7 +130,7 @@ export default async function product(req:NextApiRequestWithFile, res:NextApiRes
                 res.status(400).json("không thể xóa")
             }
         }catch(err){
-            res.status(500).json("lỗi server")
+            res.status(500).json("lỗi server"+err)
         }
     } else if(req.method==='GET'){
         const {id}= req.query

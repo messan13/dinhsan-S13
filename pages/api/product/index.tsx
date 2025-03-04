@@ -60,7 +60,8 @@ export default async function index(req:NextApiRequestWithFile,res:NextApiRespon
             name,
             description,
             price:Number(price),
-            image:imagePath
+            image:imagePath,
+            loai:'1'
           }
         });
         res.status(200).json("thêm thành công!");

@@ -28,7 +28,7 @@ export default function Banner() {
   return (
     <>
     <Container>
-    <div style={{display:"flex" , padding:"30px 0px", paddingTop:"100px"}}>
+    <div style={{display:"flex", paddingTop:"20px"}}>
     <div className={style.banner_container}>
       <div className={style.banner} style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
         {slideImages.map((image, index) => (
@@ -36,20 +36,6 @@ export default function Banner() {
         ))}
       </div>
     </div>
-<div className={style.banner_index}>
-<div className={style.banner2} >
-        <img src="/upload/hinh1.jpg" alt="" />
-      </div>
-      <div className={style.banner2} >
-        <img src="/upload/hinh1.jpg" alt="" />
-      </div>
-      <div className={style.banner2} >
-        <img src="/upload/hinh1.jpg" alt="" />
-      </div>
-      <div className={style.banner2} >
-        <img src="/upload/hinh1.jpg" alt="" />
-      </div>
-</div>
    
     </div>
 

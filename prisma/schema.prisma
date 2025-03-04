@@ -14,6 +14,7 @@ model user {
   createdAt  DateTime @default(now())
   password   String
   checkAdmin Boolean  @default(false)
+  orders     order[]
 }
 
 model product {
@@ -22,7 +23,10 @@ model product {
   description String?
   price       Float
   image       String?
+  loai        String
   carts       cart[]
+  orderItems  OrderItem[]
+  comments    Comment[]
 }
 
 model cart {
@@ -34,3 +38,33 @@ model cart {
   @@unique([iduser, idproduct]) 
 }
 
+model order {
+  id    Int @id @default(autoincrement())
+  iduser Int 
+  user  user @relation(fields :[iduser] , references :[id])
+  customer    String
+  phone       String
+  address     String
+  totalPrice Float
+  status  String  @default("pending")
+  createdAt DateTime @default(now())
+  items  OrderItem[]
+}
+
+model OrderItem {
+  id        Int     @id @default(autoincrement())
+  orderId   Int
+  order     order   @relation(fields: [orderId], references: [id])
+  productId Int
+  product   product @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Float 
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  content   String
+    productId Int
+  product   product  @relation(fields: [productId], references: [id])
+  createdAt DateTime @default(now())
+}

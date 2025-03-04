@@ -1,0 +1,110 @@
+.logo{
+  width: 60px;
+  height: 50px;
+}
+
+.modal_admin{
+    display: flex;
+   gap: 20px;
+}
+.modal_left{
+    flex: 7; /* Chiếm 70% */
+}
+.orderForm{
+  padding: 15px;
+  border: 1px solid rgb(217, 216, 216);
+  border-radius: 8px;
+}
+.modal_right {
+    flex: 3; /* Chiếm 30% */
+    padding: 15px;
+    border-radius: 8px;
+    height: auto;
+  }
+  .style_form {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 10px; /* Tạo khoảng cách giữa label và input */
+  }
+  
+  .style_form label {
+    flex: 3; 
+   color: #527360;
+    font-weight: bold;
+  }
+  
+  .style_form input {
+    flex: 7; /* Chiếm 70% */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .style_form select {
+    flex: 7; /* Chiếm 70% */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .donhang{
+    display: flex;
+    justify-content: space-between;
+  }
+  .donhang h5{
+    align-items: center;
+  }
+  .donhang button{
+    display: flex;
+    justify-content: center; 
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+    background-color: #527360;
+    color: white;
+    border-radius: 50px;
+  }
+  .OrderItem ul{
+    display: flex;
+  }
+  .OrderItem li{
+    flex: 1;
+    font-size: 14px;
+  }
+  .orderDetails {
+    max-height: 0; /* Ẩn nội dung */
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
+  }
+  
+  .show {
+    max-height: 500px; 
+    opacity: 1;
+  }
+  .pay{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    border-top:1px solid whitesmoke ;
+  }
+  .pay p{
+    font-weight: bolder;
+    line-height: 60px;
+  }
+  .pay div{
+    font-weight: bolder;
+    color: red;
+    line-height: 60px;
+  }
+  .orderDetails .pay {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  .OrderOk{
+    width: 100%;
+    height: 50px;
+    background-color:#527360;
+    color: white;
+    border-radius: 50px;
+  }

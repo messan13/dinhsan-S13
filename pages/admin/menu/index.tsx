@@ -13,7 +13,7 @@ return (
         <div className='menu_right'>
             <nav style={{}}>
               <ul>
-              <li>  <img src="/upload/logo.png" alt=""  /> </li>
+            
                 <li>
                   <Link href="/">Trang chủ</Link>
                 </li>

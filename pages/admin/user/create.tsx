@@ -7,7 +7,6 @@ import {mutate} from 'swr'
 interface Icreate{
     showcreate:boolean,
     setShowcreate : (v:boolean)=> void
-
 }
 function CreateUser(props:Icreate) {
 

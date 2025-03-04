@@ -56,39 +56,41 @@ input{
 td{
   text-align: center;
 }
-nav {
-  background: whitesmoke;
-  height: 70px;
+.navmenu {
+ 
+  height: 50px;
   width: 100%;
-  position: fixed;
-  z-index: 1000;
+  /* position: fixed;
+  z-index: 1000; */
 }
 
-nav ul {
+.navmenu ul {
   display: flex;
   list-style: none;
   padding: 0;
 }
 
-nav li {
-  margin: 0px 20px;
+.navmenu li {
+  margin: 0px 30px;
   
 }
-nav img{
- width: 100px;
- height: 70px;
+.logo{
+ width: 150px;
+ height: 100px;
+ margin-bottom: 50px;
+
 }
-nav a {
-  color: #171717;
+.navmenu a {
+  color: #527360;
   text-decoration: none;
-  font-weight: bold;
-  line-height: 70px;
+  line-height: 50px;
+  font-size: 20px;
+  font-weight:500;
   display: block;
   text-align: center;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.navmenu a:hover {
   color: rgb(99, 199, 99);
 }
 .nav-dropdown-title {
@@ -113,7 +115,32 @@ button :hover{
 
 .menu_user{
   display: flex;
+  justify-content: space-around;
+  height: 80px;
 }
 .menu_right{
-  width: 70%;
+  display: flex;
+  margin: 5px auto;
+}
+.Input{
+  display: flex;
+  margin-top: 20px;
+ 
+}
+.Input input{
+  width: 400px;
+  height: 40px;
+  border-top-left-radius:50px ;
+  border-bottom-left-radius:50px ;
+  border: 2px solid#527360 ;
+  border-right: none;
+  padding-left: 20px;
+}
+.Input button{
+  width: 70px;
+  height: 40px;
+  background: #527360 ;
+  border-top-right-radius:50px ;
+  border-bottom-right-radius:50px ;
+  color: white;
 }

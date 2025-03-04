@@ -16,7 +16,6 @@ export default async function index(req:NextApiRequest , res:NextApiResponse){
         if(!tkproduct){
             return res.status(400).json("sản phẩm ko tồn tại!")
         }
-
         const exitingCartItem = await prisma.cart.findFirst({
             where:{
                 iduser:Number(iduser),
@@ -26,13 +25,14 @@ export default async function index(req:NextApiRequest , res:NextApiResponse){
         if(exitingCartItem){
             try{
            const update= await prisma.cart.update({
-                where :{id : exitingCartItem.id} ,
-                data:{quantity :exitingCartItem.quantity+quantity}
+                where :{id : Number(exitingCartItem.id)} ,
+                data:{quantity :exitingCartItem.quantity+Number(quantity)}
             });
             if(update){
-                res.status(200).json("Sản phẩm đã được thêm vào giỏ hàng của bạn !")
+              return  res.status(200).json("Sản phẩm đã được thêm vào giỏ hàng của bạn !")
             }
         }catch(err){
+            console.log(err);
             res.status(500).json("lỗi server " + err);
         }
         }
@@ -46,11 +46,40 @@ export default async function index(req:NextApiRequest , res:NextApiResponse){
                     }
                   });
                   if(create){
-                   res.status(200).json("Sản phẩm đã được thêm vào giỏ hàng của bạn !")
+                 return  res.status(200).json("Sản phẩm đã được thêm vào giỏ hàng của bạn !")
                   }
                } catch(err){
                    res.status(500).json("lỗi server " + err)
                }
      }
-    }
+    } else if(req.method==='DELETE'){
+        const {id} = req.query
+        try{
+            const dele = await prisma.cart.deleteMany({
+                where:{idproduct:Number(id)}
+            })
+            if(dele){
+              return  res.status(200).json("sản phẩm đã được xóa")
+            }
+        }catch(err){
+            res.status(500).json("Lỗi server "+err)
+        }
+    }else if(req.method==='GET'){
+                try{
+                    const {id} = req.query
+                    if (!id || isNaN(Number(id))) {
+                        return res.status(400).json({ error: 'Invalid user ID' });
+                      }
+                    const data = await prisma.cart.findMany({
+                        where:{iduser:Number(id)},
+                        include:{product:true}
+                    })
+           
+                    if(data){
+                      return  res.status(200).json(data)
+                    }
+                }catch(err){
+                    res.status(500).json("lỗi server " + err)
+                }
+            }
 }
