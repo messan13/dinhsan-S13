@@ -1,0 +1,10 @@
+[33m7d36039[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m HEAD@{0}: reset: moving to 7d36039
+[33m901e808[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{1}: reset: moving to HEAD
+[33m901e808[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{2}: commit: teset
+[33m7d36039[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m HEAD@{3}: commit: themcode
+[33md574ff0[m HEAD@{4}: commit: no message
+[33m2eae481[m HEAD@{5}: pull origin master: Merge made by the 'ort' strategy.
+[33ma79ea71[m HEAD@{6}: commit: xoa test
+[33mdc0986d[m HEAD@{7}: commit: test
+[33m7fc55ee[m HEAD@{8}: Branch: renamed refs/heads/main to refs/heads/master
+[33m7fc55ee[m HEAD@{10}: commit (initial): san
