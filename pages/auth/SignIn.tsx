@@ -16,9 +16,11 @@ const SignIn = () => {
   useEffect(() => {
     if (errors === 'unauthorized') {
       toast.error("Bạn chưa đăng nhập. Vui lòng đăng nhập để tiếp tục!");
+      return;
     }
     if (errors === 'forbidden') {
       toast.error("Bạn không đủ quyền truy cập trang vừa rồi! Hãy đăng nhập tài khoản Admin để tiếp tục "); 
+      return
     }
   }, [errors]);
 

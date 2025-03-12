@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import Button from "react-bootstrap/Button";
 import style from './sanpham.module.css';
 import useSWR from "swr";
 import { mutate } from 'swr';
 import { useSession } from "next-auth/react";
 import {toast } from 'react-toastify';
+import Container from 'react-bootstrap/Container';
+import Menu from "../menu"
 interface IProduct {
   id: number;
   name: string;
@@ -14,6 +17,7 @@ interface IProduct {
 }
 
 export default function Products() {
+  const router = useRouter();
   const { data: session, status } = useSession();
   const [currentPage, setCurrentPage] = useState(1); 
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -26,13 +30,13 @@ export default function Products() {
         toast.error("Bạn chưa đăng nhập!")
       } else{
         const iduser = session?.user.id
-        const data = await fetch('api/carts', {
+        const data = await fetch('http://localhost:3000/api/carts', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({iduser,idproduct})
+        body: JSON.stringify({iduser,idproduct,quantity:Number(1)})
       })
       const kq = await data.json();
       if(kq){
@@ -41,14 +45,14 @@ export default function Products() {
       }
       if(data.status==200){
         toast.success(kq)
-        mutate(`http://localhost:3000/api/carts/${session.user.id}`)
+        mutate(`http://localhost:3000/api/carts?id=${session.user.id}`)
       }
       }
   }
 
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
-    `api/product?page=${currentPage}&limits=${pageSize}`,
+    `http://localhost:3000/api/product?page=${currentPage}&limits=${pageSize}`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -73,8 +77,6 @@ export default function Products() {
     console.log('lỗi ,', error);
     return <p>Error loading data :{error.message}</p>;
   }
-
-
   const handlePageChange = (page: number) => {
     if (page > 0 && page <= totalPages) {
       setCurrentPage(page);
@@ -104,6 +106,7 @@ export default function Products() {
   };
   return (
     <>
+    <Container>
       <div style={{padding:'20px 0px'}} className={style.body_cover}>
         <div className={style.body_cover_left}></div>
         <div className={style.body_cover_middle}>SẢN PHẨM</div>
@@ -117,14 +120,17 @@ export default function Products() {
                 <img src={`/${item.image}`} alt={item.name} />
               </div>
             </div>
-            <div className={style.content}>
+            <div style={{height:"50px"}} className={style.content}>
               <p>{item.name}</p>
             </div>
             <div className={style.money_cover}>
               {parseFloat(item.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
             </div>
             <div style={{display:"flex" , justifyContent:'space-around'}}>
-            <Button variant="primary" >MUA HÀNG</Button>
+            <Button variant="primary" onClick={()=>{
+              handlCarts(item.id);
+              router.push('/user/cart')
+            }} >MUA HÀNG</Button>
             <Button variant="primary" onClick={()=>{
               handlCarts(item.id)
             }} >THÊM GIỎ HÀNG</Button>
@@ -164,7 +170,7 @@ export default function Products() {
           Next
         </Button>
       </div>
- 
+      </Container>
     </>
   );
 }

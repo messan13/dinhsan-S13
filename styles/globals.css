@@ -20,7 +20,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
+body{
+  background-color: whitesmoke;
+}
 .err{
   color: red;
 }
@@ -53,4 +55,92 @@ input{
 }
 td{
   text-align: center;
+}
+.navmenu {
+ 
+  height: 50px;
+  width: 100%;
+  /* position: fixed;
+  z-index: 1000; */
+}
+
+.navmenu ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.navmenu li {
+  margin: 0px 30px;
+  
+}
+.logo{
+ width: 150px;
+ height: 100px;
+ margin-bottom: 50px;
+
+}
+.navmenu a {
+  color: #527360;
+  text-decoration: none;
+  line-height: 50px;
+  font-size: 20px;
+  font-weight:500;
+  display: block;
+  text-align: center;
+}
+
+.navmenu a:hover {
+  color: rgb(99, 199, 99);
+}
+.nav-dropdown-title {
+  font-size: 30px;
+  line-height: 70px;  /* Thay đổi kích thước chữ của title */
+  font-weight: bold; 
+  display: flex;
+  
+}
+
+.nav-dropdown-title :hover{
+  color:  rgb(99, 199, 99);
+}
+
+.nav-dropdown-toggle::after {
+  display: none;
+}
+button :hover{
+  text-decoration: underline;
+  color: rgb(99, 199, 99);
+}
+
+.menu_user{
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+}
+.menu_right{
+  display: flex;
+  margin: 5px auto;
+}
+.Input{
+  display: flex;
+  margin-top: 20px;
+ 
+}
+.Input input{
+  width: 400px;
+  height: 40px;
+  border-top-left-radius:50px ;
+  border-bottom-left-radius:50px ;
+  border: 2px solid#527360 ;
+  border-right: none;
+  padding-left: 20px;
+}
+.Input button{
+  width: 70px;
+  height: 40px;
+  background: #527360 ;
+  border-top-right-radius:50px ;
+  border-bottom-right-radius:50px ;
+  color: white;
 }

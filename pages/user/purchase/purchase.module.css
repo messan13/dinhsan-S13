@@ -1,0 +1,176 @@
+
+
+.order_container {
+    width: 60%;
+    margin: 20px auto;
+    border: 2px solid #527360;
+    border-radius: 8px;
+    padding: 15px;
+    background: #fff;
+}
+
+.order_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #527360;
+    padding-bottom: 10px;
+}
+
+.shop_info {
+    display: flex;
+    align-items: center;
+}
+
+.shop_date {
+    font-size: 16px;
+    font-weight: bold;
+    color: #527360;
+}
+
+.chat_btn, .view-shop-btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.order_status {
+    color:  #527360;
+    font-weight: bold;
+}
+
+.order_body {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgb(235, 233, 233);
+}
+
+.product_image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.product_info {
+    flex: 1;
+}
+
+.product_name {
+    font-size: 16px;
+    color: #527360;
+}
+
+.product_price {
+    color: red;
+    font-size: 16px;
+}
+
+.order_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.total_price {
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy_again {
+  background-color:#527360;
+    color: white;
+    border: 2px solid #527360;
+}
+
+.contact_seller {
+    background-color: white;
+    border: 2px solid #527360;
+    color: #527360;
+    font-weight: bolder;
+}
+.showMoreBtn{
+    color: #527360;
+    font-weight: bolder;
+}
+.filter_container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  .filter_list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    gap: 15px;
+    padding: 0;
+    width: 60%;
+    margin: 20px auto;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+  }
+  
+  .filter_list li {
+    display: inline-block;
+    flex: 1;
+  }
+  
+  .filter_list button {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color:#527360;
+    display: block;
+    line-height: 50px;
+    margin: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter_list button:hover {
+    color: #527360;
+  }
+  
+  .active_filter {
+    color: red;
+    font-weight: bold;
+  }
+  .active_li{
+    border-bottom: 2px solid #527360;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  }
+  .NoOrder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    text-align: center; /* Căn giữa chữ */
+    height: 100%; /* Hoặc 100vh nếu muốn nó chiếm toàn bộ chiều cao */
+    padding: 20px;
+  }
+  
+
+  .NoOrder p {
+    font-size: 18px;
+    color:#527360; /* Màu chữ tùy chỉnh */
+    font-weight: bolder;
+  }
+  

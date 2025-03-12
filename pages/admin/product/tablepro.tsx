@@ -58,7 +58,7 @@ const [showupdate,setShowupdate]=useState<boolean>(false);
                }}>Edit</Button>
                <Button variant='danger' onClick={()=>{
                 if(confirm("bạn có chắc chắn muốn xóa không?")){
-                       fetch(`../../api/product/${item.id}`, {
+                       fetch(`http://localhost:3000/api/product/${item.id}`,{
                         method: 'DELETE',
                         headers: {
                           'Accept': 'application/json, text/plain, */*',
@@ -67,19 +67,27 @@ const [showupdate,setShowupdate]=useState<boolean>(false);
                       }).then(res => res.json())
                       .then(res => {
                           if(res){
-                              toast.success("Xóa dữ liệu thành công");
+                              toast.success(res);
                               mutate("../../api/product");
-                         
+                              fetch(`http://localhost:3000/api/carts?id=${item.id}`, {
+                                method: 'DELETE',
+                                headers: {
+                                  'Accept': 'application/json, text/plain, */*',
+                                  'Content-Type': 'application/json'
+                                },
+                              }).then(res => res.json())
+                              .then(res =>{
+                                if(res){
+                                  console.log('xóa thành công');
+                                }
+                              })
                           }else{
                               toast.error("xóa thất bại")
                           }
-                        
                       });
-                  
                     }else{
                       toast.info('hủy lệnh xóa')
                     }
-
                }}>Delete</Button>
              </td>
            </tr>

@@ -13,3 +13,20 @@ interface Iproduct{
     price:string
     image:string
 }
+interface Icart{
+    id:number
+    iduser:number
+    idproduct:number
+    quantity:number
+    product :Iproduct
+}
+interface Iorderitem{
+    id:number
+    iduser:number
+    customer:string
+    phone:string
+    address:string
+    totalPrice:number
+    status:string
+    createdAt:string
+}

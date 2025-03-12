@@ -28,6 +28,7 @@ if(products && products.id)
     setid(products?.id || 0)
     setOldPhoto(products?.image || "")
 },[products])
+
 const hanleImagechange = (event:React.ChangeEvent<HTMLInputElement>)=>{
   const file = event.target.files?.[0];
   if(file){

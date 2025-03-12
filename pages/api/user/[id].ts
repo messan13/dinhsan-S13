@@ -7,14 +7,10 @@ export default async function UpdateUser(req: NextApiRequest, res: NextApiRespon
 
     if (req.method === 'PUT') {
         const { id } = req.query; 
-
         if (!id || Array.isArray(id)) {
             return res.status(400).json({ error: "Invalid user ID" });
         }
         const { name, email} = req.body;
-      
-            
-
         try {
             const updatedUser = await prisma.user.update({
                 where: { id: Number(id) },
