@@ -51,7 +51,7 @@ export default function Menu() {
                   <i className="bi bi-envelope-open"></i> dinhsantruong@gmail.com
                 </li>
                 <li style={{ flex: "1", textAlign: "center", borderLeft: "1px solid white", color: "white" }}>
-                  <i className="bi bi-alarm"></i> 8:00 AM - 6:00 PM T2-T7
+                  <i className="bi bi-alarm"></i> 8:00 AM - 6:00 PM T2-T7     
                 </li>
                 <li style={{ flex: "1", textAlign: "center", borderLeft: "1px solid white", color: "white" }}>
                   <i className="bi bi-telephone-fill"></i> 0945375009-0327003624
